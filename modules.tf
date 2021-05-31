@@ -9,7 +9,7 @@ module "ec2" {
   my_public_key  = "/tmp/id_rsa.pub"
   instance_type  = "t2.micro"
   security_group = "${module.vpc.security_group}"
-  subnets        = "${module.vpc.aws public_subnet}"
+  subnet        = "${module.vpc.aws public_subnet}"
 }
 
 module "alb" {
