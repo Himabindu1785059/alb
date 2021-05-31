@@ -1,7 +1,3 @@
-provider "aws" {
-  region = "us-east-2"
-}
-
 module "vpc" {
   source          = "./vpc"
   vpc_cidr        = "10.0.0.0/16"
@@ -13,7 +9,7 @@ module "ec2" {
   my_public_key  = "/tmp/id_rsa.pub"
   instance_type  = "t2.micro"
   security_group = "${module.vpc.security_group}"
-  subnets        = "${module.vpc.aws public_subnet}"
+  subnets        = "$${module.vpc.aws public_subnet}"
 }
 
 module "alb" {
